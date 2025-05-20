@@ -1,1 +1,10 @@
 # ZTP
+
+===============<uruchomienie>=============
+version: "3.9"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
