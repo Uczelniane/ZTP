@@ -1,2 +1,2 @@
 # ZTP
-jak uruchomic program znajduje się w pliku Przykład użycia wraz z konfiguracją
+jak uruchomic program znajduje się w pliku <h3>Przykład użycia wraz z konfiguracją</h3
