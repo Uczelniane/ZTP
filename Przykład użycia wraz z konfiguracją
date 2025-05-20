@@ -1,0 +1,29 @@
+=================================================<Przykład użycia>===================================================
+
+// Inicjalizacja danych
+var input = new double[3000, 3000];
+var kernel = new double[5, 5];
+
+// Test wariantu z ArrayPool
+var result = PerformanceMeasurer.Measure(() =>
+{
+    var processor = new ConvolutionProcessor();
+    processor.ArrayPoolConvolution(input, kernel);
+});
+
+Console.WriteLine($"Zużycie pamięci: {result.memoryMB} MB, Czas: {result.time.TotalMilliseconds} ms");
+
+// Konfiguracja GC
+GarbageCollectorConfig.EnableServerGC();
+GarbageCollectorConfig.ManualGcCollect();
+
+
+============================================<Konfiguracja środowiska>===============================================
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+  </PropertyGroup>
+</Project>
